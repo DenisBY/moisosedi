@@ -1,0 +1,60 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+1:
+  id: 1
+  flat: 2
+  owner: "Иванов Иван Иванович"
+  contacts: "+3751234567"
+  houses_id: 1
+  square: "49,3"
+  role: "user"
+
+
+2:
+  id: 2
+  flat: 3
+  owner: "Джигурда Никита Растофьянович"
+  contacts: "+3791234567"
+  houses_id: 2
+  square: "50,3"
+  role: "user"
+
+3:
+  id: 3
+  flat: 3
+  owner: "Петров Петр Петрович"
+  contacts: "+3790001001"
+  houses_id: 1
+  square: "54,3"
+  role: "user"
+
+4:
+  id: 4
+  flat: 2
+  owner: "Лилиев Лалай Лалаевич"
+  contacts: "+3757654321"
+  houses_id: 2
+  square: "45"
+  role: "user"
+
+5:
+  id: 5
+  flat: 2
+  owner: "Сидоров Сидор Сидорович"
+  contacts: "+375098765432"
+  houses_id: 1
+  square: "42,7"
+  role: "user"
+
+6:
+  id: 6
+  flat: 
+  owner: "Аудитор Аудиторович Аудиторов"
+  contacts: 
+  houses_id: 
+  square: 
+  role: "admin"

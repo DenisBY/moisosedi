@@ -1,0 +1,30 @@
+%h3 Показания горячей воды
+%table
+  %tr
+    %th
+    %th Number flat
+    %th User
+    %th Mont
+    %th Water wc
+    %th Water kitchen
+    %th Kons_wc
+    %th Kons_kitchen
+    %th
+    %th
+    %th
+  - @water_infos.each do |water_info|
+    %tr
+      %td= water_info.number_flat
+      %td= water_info.user_id
+      %td= water_info.mont
+      %td= water_info.water_wc
+      %td= water_info.water_kitchen
+      %td= water_info.kons_w
+      %td= water_info.kons_k
+      %td= link_to 'Show', water_info
+      %td= link_to 'Edit', edit_water_info_path(water_info)
+      %td= link_to 'Destroy', water_info, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Water info', new_water_info_path

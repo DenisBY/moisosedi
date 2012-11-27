@@ -1,0 +1,103 @@
+- default_month = params[:water_info] ? params[:water_info]["mont(2i)"].to_i : Date.today.month
+- default_year = params[:water_info] ? params[:water_info]["mont(1i)"].to_i : Date.today.year
+
+%form{:action => auditor_water_info_path, :method => :get}
+  = date_select("water_info", "mont", options = {:use_month_numbers => true,  :start_year => Time.now.year - 1, :end_year => Time.now.year, :discard_day => true,  :default => { :month => default_month, :year => default_year }}, html_options = {})
+  %button{:type => "submit"} Найти
+%p= House.find(1).address
+%table.table-bordered
+  %thead
+    %tr
+      %th
+        месяц
+      %th
+        Номер квартиры
+      %th
+        ФИО
+      %th
+        Счетчик
+      %th
+        Предыдущие показания 
+      %th
+        Текущие показания
+      %th
+        Расход 
+  %tbody
+    - @house1_wi.each do |wi|
+      %tr
+        %td.table-bordered{:rowspan => "2"}
+          = wi.mont.month
+        %td.table-bordered{:rowspan => "2"}
+          = wi.number_flat
+        %td.table-bordered{:rowspan => "2"}
+          = wi.user.owner  
+        %td.table-bordered
+          С/у
+        %td.table-bordered
+          = wi.get_previos.try(:water_wc)
+        %td.table-bordered  
+          = wi.water_wc
+        %td.table-bordered
+          = wi.kons_w
+          
+      %tr
+        %td.table-bordered  
+          Кухня
+        %td.table-bordered
+          = wi.get_previos.try(:water_kitchen)
+        %td.table-bordered  
+          = wi.water_kitchen
+        %td.table-bordered
+          = wi.kons_k
+
+%br
+    
+%p= House.find(2).address
+%table.table-bordered
+  %thead
+    %tr
+      %th
+        Месяц
+      %th
+        Номер квартиры
+      %th
+        ФИО
+      %th
+        Счетчик
+      %th
+        Предыдущие показания 
+      %th
+        Текущие показания
+      %th
+        Расход 
+  %tbody
+    - @house2_wi.each do |wi|
+      %tr
+        %td.table-bordered{:rowspan => "2"}
+          = wi.mont.month
+        %td.table-bordered{:rowspan => "2"}
+          = wi.number_flat
+        %td.table-bordered{:rowspan => "2"}
+          = wi.user.owner  
+        %td.table-bordered
+          С/у
+        %td.table-bordered
+          = wi.get_previos.try(:water_wc)
+        %td.table-bordered  
+          = wi.water_wc
+        %td.table-bordered
+          = wi.kons_w
+          
+      %tr
+        %td.table-bordered  
+          Кухня
+        %td.table-bordered
+          = wi.get_previos.try(:water_kitchen)
+        %td.table-bordered  
+          = wi.water_kitchen
+        %td.table-bordered
+          = wi.kons_k
+
+%br
+
+                

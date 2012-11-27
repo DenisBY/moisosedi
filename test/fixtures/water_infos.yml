@@ -1,0 +1,149 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+1:
+  id: 1
+  number_flat: 2
+  mont: 2012-8-16
+  water_wc: 20
+  user_id: 1
+  water_kitchen: 25
+  kons_w: 20
+  kons_k: 25
+
+2:
+  id: 2
+  number_flat: 2
+  user_id: 1
+  mont: 2012-9-16
+  water_wc: 25
+  water_kitchen: 30
+  kons_w: 5
+  kons_k: 5
+
+3:
+  id: 3
+  number_flat: 2
+  user_id: 1
+  mont: 2012-10-16
+  water_wc: 32
+  water_kitchen: 38
+  kons_w: 7
+  kons_k: 8
+
+4:
+  id: 4
+  number_flat: 123
+  user_id: 2
+  mont: 2012-8-16
+  water_wc: 10
+  water_kitchen: 11
+  kons_w: 10
+  kons_k: 11
+
+5:
+  id: 5
+  number_flat: 123
+  user_id: 2
+  mont: 2012-9-16
+  water_wc: 19
+  water_kitchen: 18
+  kons_w: 9
+  kons_k: 7
+
+6:
+  id: 6
+  number_flat: 123
+  user_id: 2
+  mont: 2012-10-16
+  water_wc: 25
+  water_kitchen: 28
+  kons_w: 6
+  kons_k: 10
+
+7:
+  id: 7
+  number_flat: 124
+  user_id: 3
+  mont: 2012-8-16
+  water_wc: 6
+  water_kitchen: 5
+  kons_w: 6
+  kons_k: 5
+
+8:
+  id: 8
+  number_flat: 124
+  user_id: 3
+  mont: 2012-9-16
+  water_wc: 11
+  water_kitchen: 13
+  kons_w: 5
+  kons_k: 6
+9:
+  id: 9
+  number_flat: 124
+  user_id: 3
+  mont: 2012-10-16
+  water_wc: 20
+  water_kitchen: 19
+  kons_w: 9
+  kons_k: 6
+
+10:
+  id: 10
+  number_flat: 130
+  user_id: 4
+  mont: 2012-8-16
+  water_wc: 10
+  water_kitchen: 15
+  kons_w: 10
+  kons_k: 15
+
+11:
+  id: 11
+  number_flat: 130
+  user_id: 4
+  mont: 2012-9-16
+  water_wc: 23
+  water_kitchen: 38
+  kons_w: 13
+  kons_k: 23
+
+12:
+  id: 12
+  number_flat: 130
+  user_id: 4
+  mont: 2012-10-16
+  water_wc: 34
+  water_kitchen: 51
+  kons_w: 11
+  kons_k: 13
+
+13:
+  id: 13
+  number_flat: 32
+  user_id: 5
+  mont: 2012-8-16
+  water_wc: 12
+  water_kitchen: 17
+  kons_w: 12
+  kons_k: 17
+
+
+14:
+  id: 14
+  number_flat: 32
+  user_id: 5
+  mont: 2012-9-16
+  water_wc: 19
+  water_kitchen: 29
+  kons_w: 7
+  kons_k: 12
+15:
+  id: 15
+  number_flat: 32
+  user_id: 5
+  mont: 2012-10-16
+  water_wc: 36
+  water_kitchen: 45
+  kons_w: 15
+  kons_k: 26

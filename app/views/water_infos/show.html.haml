@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%p
+  %b Number flat:
+  = @water_info.number_flat
+%p
+  %b User:
+  = @water_info.user.owner
+  %b Mont:
+  = @water_info.mont
+%p
+  %b Water wc:
+  = @water_info.water_wc
+%p
+  %b Water kitchen:
+  = @water_info.water_kitchen
+%p
+  %b Cons:
+  = @water_info.kons_w
+%p
+  %b Cons:
+  = @water_info.kons_k
+
+= link_to 'Edit', edit_water_info_path(@water_info)
+\|
+= link_to 'Back', water_infos_path
+
+
+

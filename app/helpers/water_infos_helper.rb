@@ -1,0 +1,2 @@
+module WaterInfosHelper
+end
