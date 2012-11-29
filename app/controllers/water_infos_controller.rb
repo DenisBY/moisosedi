@@ -26,8 +26,7 @@ class WaterInfosController < ApplicationController
       redirect_to root_url
     end
   end
-#{params[:water_info][:mont(1i)]}-#{params[:water_info][:mont(2i)]}-1
-#{params[:water_info][:mont(1i)]}-#{params[:water_info][:mont(2i)]}-30
+
 
   # GET /water_infos
   # GET /water_infos.json

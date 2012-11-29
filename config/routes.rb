@@ -5,11 +5,10 @@ Demo::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
+  
    match 'water_infos/auditor' => 'water_infos#auditor', :as => :auditor_water_info
    match 'water_infos/link' => 'water_infos#link', :as => :link_water_info
-   match 'search' => 'water_infos#search'
-
-
+  
    resources :water_infos
   # Keep in mind you can assign values other than :controller and :action
 
