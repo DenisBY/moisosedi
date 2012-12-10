@@ -7,7 +7,8 @@ task :random_logpas => :environment do
     user.update_attributes(:login => SecureRandom.hex(5), :password => SecureRandom.hex(5))
     @str += "#{user.id} #{user.owner}: login -- #{user.login}, password -- #{user.password}\n"
   end
-    File.open('Логины и пароли.txt', 'w'){ |f| f.write @str }
+    File.open('Логины и пароли.xml', 'w'){ |f| f.write @str }
+    #File.open(local_filename, 'w') { |f| f.write(xml_string) }
 end
 
 

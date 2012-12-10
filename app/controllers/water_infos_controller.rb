@@ -70,21 +70,23 @@ class WaterInfosController < ApplicationController
   # POST /water_infos.json
   def create
     @water_info = WaterInfo.new(params[:water_info])
-    wc = current_user.water_infos.order('created_at DESC').first.water_wc
-    k = current_user.water_infos.order('created_at DESC').first.water_kitchen
+    wc = current_user.water_infos.get_last.water_wc
+    k = current_user.water_infos.get_last.water_kitchen
 
     @water_info.user = current_user
+    
     @water_info.mont = Date.today
-    if wc.present? and k.present?
-      @water_info.kons_w = @water_info.water_wc - wc
-      @water_info.kons_k = @water_info.water_kitchen - k
-    end
+    
+    @water_info.cons "water_wc", wc
+    @water_info.cons "water_kitchen", k
+
+
     respond_to do |format|
       if @water_info.save
         format.html { redirect_to root_url, notice: 'Ваши показания счетчиков успешно сохранены.' }
         format.json { render json: @water_info, status: :created, location: @water_info }
       else
-        format.html { render action: "new" }
+        format.html { render action: "new", :format => :xml }
         format.json { render json: @water_info.errors, status: :unprocessable_entity }
       end
     end
