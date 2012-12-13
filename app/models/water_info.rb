@@ -30,7 +30,7 @@ class WaterInfo < ActiveRecord::Base
   before_validation :check_month
 
   def check_month
-    self.errors.add(:mont, "Вы уже вводили значения в это месяце") if current_user.water_infos.order('created_at DESC').first.mont = self.mont
+    self.errors.add(:mont, "Вы уже вводили значения в это месяце") if WaterInfo.where(:user_id => self.user_id).order('created_at DESC').first.mont == self.mont
   end
 
   # def get_previos
