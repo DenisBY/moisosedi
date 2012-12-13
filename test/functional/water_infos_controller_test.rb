@@ -12,12 +12,21 @@ require 'test_helper'
       get :link
       assert_response :success
     end
+
+    test "should route to water_info/new" do
+      assert_routing '/water_infos/new', { :controller => "water_infos", :action => "new" }
+    end
+
+    test "should route to water_info/auditor" do
+      assert_routing '/water_infos/auditor', { :controller => "water_infos", :action => "auditor" }
+    end
+
   end
-#   test "should get index" do
-#     get :index
-#     assert_response :success
-#     assert_not_nil assigns(:water_infos)
-#   end
+  # test "should get index" do
+  #   get :index
+  #   assert_response :success
+  #   assert_not_nil assigns(:water_infos)
+  # end
 
   
 

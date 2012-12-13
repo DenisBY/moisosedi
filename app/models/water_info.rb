@@ -1,3 +1,4 @@
+#encoding: utf-8
 # == Schema Information
 #
 # Table name: water_infos
@@ -19,12 +20,21 @@ class WaterInfo < ActiveRecord::Base
   belongs_to :user
 
 
+
+  
+
   validates :number_flat, :presence => true, :numericality => { :only_integer => true, :greater_than => 0 }
   validates :water_kitchen, :presence => true, :numericality => { :only_integer => true, :greater_than => 0 }
   validates :water_wc, :presence => true, :numericality => { :only_integer => true, :greater_than => 0 }
 
-  def get_previos
-    WaterInfo.where('id != ? and user_id = ?', self.id, self.user_id).where('mont < ?', self.mont).order('mont DESC').first
-  end 
+  before_validation :check_month
+
+  def check_month
+    self.errors.add(:mont, "Вы уже вводили значения в это месяце") if current_user.water_infos.order('created_at DESC').first.mont = self.mont
+  end
+
+  # def get_previos
+  #   WaterInfo.where('id != ? and user_id = ?', self.id, self.user_id).where('mont < ?', self.mont).order('mont DESC').first
+  # end 
 
 end
