@@ -24,8 +24,12 @@ class WaterInfoTest < ActiveSupport::TestCase
     @w = FactoryGirl.create(:water_info)
   end
 
+  def teardown
+    @w = nil
+  end
+
   test "save_water_info" do
-    assert @w.valid?, @w.errors.full_messages.to_s
+    assert @w.save, @w.errors.full_messages.to_s
   end
 
   test "number_flat" do
@@ -52,5 +56,18 @@ class WaterInfoTest < ActiveSupport::TestCase
     assert !@w.save, @w.errors.full_messages.to_s
     @w.number_flat = 'nil'
     assert !@w.save, @w.errors.full_messages.to_s
+  end
+
+
+  test "check_mont" do
+    w1 = FactoryGirl.build(:water_info)
+    assert !w1.save, w1.errors.full_messages.to_s
+  end
+
+  test "get_previos" do
+    w1 = FactoryGirl.build(:water_info)
+    w1.mont = '2012-11-16'
+    w1.save
+    assert WaterInfo.get_previos.!include?(w1)
   end
 end

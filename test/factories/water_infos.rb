@@ -3,10 +3,10 @@
 FactoryGirl.define do
   factory :water_info do
     number_flat 2
-    mont 2012-12-16
-    water_wc 20
+    mont '2012-11-16'
+    water_wc 40
     user_id 1
-    water_kitchen 25
+    water_kitchen 45
     kons_w 20
     kons_k 25
 

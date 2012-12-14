@@ -1,6 +1,6 @@
-1 Иванов Иван Иванович: login -- a2c4b5503d, password -- 2b17dd3ec1
-2 Джигурда Никита Растофьянович: login -- 685bde781a, password -- 7ca8790089
-3 Петров Петр Петрович: login -- 0e954dfc98, password -- 122d764996
-4 Лилиев Лалай Лалаевич: login -- b584a06b6e, password -- c409acb458
-5 Сидоров Сидор Сидорович: login -- 7d54b1c67a, password -- 83596061b8
-6 Аудитор Аудиторович Аудиторов: login -- cf175449da, password -- 09fae36f7b
+1 Иванов Иван Иванович: login -- 2393e6512f, password -- 00f99bf71a
+2 Джигурда Никита Растофьянович: login -- d9a72df691, password -- 8aa5fe6f30
+3 Петров Петр Петрович: login -- b014f65eef, password -- 0a31468014
+4 Лилиев Лалай Лалаевич: login -- 66b0e29d22, password -- 0def431c62
+5 Сидоров Сидор Сидорович: login -- f9d8e28834, password -- 0e2854e937
+6 Аудитор Аудиторович Аудиторов: login -- adfab1bc16, password -- 658481df5d
