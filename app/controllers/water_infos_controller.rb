@@ -75,7 +75,7 @@ class WaterInfosController < ApplicationController
 
     @water_info.user = current_user
     @water_info.mont = Date.today
-    if wc.present? and k.present?
+    if wc.present? and k.present? and @water_info.water_wc.present? and @water_info.water_kitchen.present?     
       @water_info.kons_w = @water_info.water_wc - wc
       @water_info.kons_k = @water_info.water_kitchen - k
     end

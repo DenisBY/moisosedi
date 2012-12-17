@@ -61,13 +61,13 @@ class WaterInfoTest < ActiveSupport::TestCase
 
   test "check_mont" do
     w1 = FactoryGirl.build(:water_info)
-    assert !w1.save, w1.errors.full_messages.to_s
+    assert w1.save, w1.errors.full_messages.to_s
   end
 
   test "get_previos" do
     w1 = FactoryGirl.build(:water_info)
-    w1.mont = '2012-11-16'
+    w1.mont = '2012-12-16'
     w1.save
-    assert WaterInfo.get_previos.!include?(w1)
+    assert @w == w1.get_previos
   end
 end
