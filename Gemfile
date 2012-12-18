@@ -46,11 +46,12 @@ group :test do
   gem 'spork'
   gem 'spork-testunit'
   gem 'factory_girl_rails'
-  gem 'autotest'
-  gem 'autotest-rails-pure'
-  gem 'autotest-fsevent'
-  gem 'autotest-growl'
 end
+
+  # gem 'autotest'
+  # gem 'autotest-rails-pure'
+  # gem 'autotest-fsevent'
+  # gem 'autotest-growl'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
