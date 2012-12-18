@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: water_infos
+#
+#  id            :integer          not null, primary key
+#  mont          :date
+#  number_flat   :integer
+#  user_id       :integer
+#  water_wc      :integer
+#  water_kitchen :integer
+#  kons_w        :integer
+#  kons_k        :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 1:
   id: 1
