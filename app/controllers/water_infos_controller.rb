@@ -1,6 +1,7 @@
 #encoding: utf-8
 class WaterInfosController < ApplicationController
   before_filter :authenticate_user!
+
   
   def link
     
