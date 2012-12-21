@@ -17,7 +17,7 @@ require 'test_helper'
 
     test "auditor" do
       get :auditor
-      assert_response :302
+      assert_response :success
     end
 
 
