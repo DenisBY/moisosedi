@@ -24,12 +24,14 @@
 #  updated_at             :datetime         not null
 #
 
-FactoryGirl.define do
-  factory :user do 
-    login 'login'
-    password 'password'
-    password_confirmation 'password'
-    role 'admin'
+FactoryGirl.define do 
+  factory :user do |u|
+    u.login 'login'
+    u.password 'password'
+    u.password_confirmation 'password'
+    u.houses_id { |h| h.association(:house) }
+    factory :auditor do |u|
+      u.role 'admin'
+    end
   end 
- 
 end

@@ -66,7 +66,7 @@ class WaterInfoTest < ActiveSupport::TestCase
 
   test "get_previos" do
     w1 = FactoryGirl.build(:water_info)
-    w1.mont = '2012-12-16'
+    w1.mont = '2012-02-16'
     w1.save
     assert @w == w1.get_previos
   end

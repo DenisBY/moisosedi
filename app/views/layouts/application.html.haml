@@ -9,5 +9,5 @@
     %p= flash[:notice]
     -if user_signed_in?
       Вы вошли как #{current_user.owner}.
-      #{link_to "Выйти", destroy_user_session_path, :method => :delete}
+      #{link_to "Выйти", destroy_user_session_path, :method => :delete, :id => "logout"}
     = yield
