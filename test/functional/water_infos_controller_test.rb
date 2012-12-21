@@ -17,7 +17,7 @@ require 'test_helper'
 
     test "auditor" do
       get :auditor
-      assert_response :success
+      assert_response :302
     end
 
 
@@ -35,12 +35,6 @@ require 'test_helper'
     test "link should render correct template and layout" do
       get :link
       assert_template :link
-      assert_template :layout => "layouts/application"
-    end
-
-    test "auditor should render correct template and layout" do
-      get :auditor
-      assert_template :auditor
       assert_template :layout => "layouts/application"
     end
   end
