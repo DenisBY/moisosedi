@@ -41,6 +41,7 @@ require 'test_helper'
       assert_template :link
       assert_template :layout => "layouts/application"
     end
+<<<<<<< HEAD
 
     test "auditor should render correct template and layout" do
       admin
@@ -48,4 +49,6 @@ require 'test_helper'
       assert_template :auditor
       assert_template :layout => "layouts/application"
     end
+=======
+>>>>>>> 445217e1d1a9550168ec1a9fa306c535d3a4d36a
   end
