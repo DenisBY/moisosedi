@@ -8,14 +8,18 @@ require 'test_helper'
       sign_in FactoryGirl.create(:user)
     end
 
-
-
+    def admin
+      @request.env["devise.mapping"] = Devise.mappings[:auditor]
+      sign_in FactoryGirl.create(:auditor)
+    end
+   
     test "link" do
       get :link
       assert_response :success
     end
 
     test "auditor" do
+      admin
       get :auditor
       assert_response :success
     end
@@ -39,6 +43,7 @@ require 'test_helper'
     end
 
     test "auditor should render correct template and layout" do
+      admin
       get :auditor
       assert_template :auditor
       assert_template :layout => "layouts/application"
