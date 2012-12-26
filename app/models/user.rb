@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :login, :password, :password_confirmation, :remember_me, :id, :flat, :owner, :contacts, :houses_id, :square, :role
+  attr_accessible :email, :login, :password, :password_confirmation, :remember_me, :id, :flat, :owner, :contacts, :houses_id, :square, :role, :number_flat
   # attr_accessible :title, :body
   belongs_to :house, :foreign_key => "houses_id"
   has_many :water_infos

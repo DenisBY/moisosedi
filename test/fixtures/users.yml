@@ -38,7 +38,7 @@
   houses_id: 1
   square: "49,3"
   role: "user"
-
+  number_flat: 88
 
 2:
   id: 2
@@ -48,6 +48,7 @@
   houses_id: 2
   square: "50,3"
   role: "user"
+  number_flat: 123
 
 3:
   id: 3
@@ -57,6 +58,7 @@
   houses_id: 1
   square: "54,3"
   role: "user"
+  number_flat: 345
 
 4:
   id: 4
@@ -66,6 +68,7 @@
   houses_id: 2
   square: "45"
   role: "user"
+  number_flat: 231
 
 5:
   id: 5
@@ -75,6 +78,7 @@
   houses_id: 1
   square: "42,7"
   role: "user"
+  number_flat: 1
 
 6:
   id: 6
@@ -84,12 +88,13 @@
   houses_id: 1
   square: "60"
   role: "user"
+  number_flat: 909
 
 7:
   id: 7
   flat: 
   owner: "Аудитор Аудиторович Аудиторов"
   contacts: 
-  houses_id: 
+  houses_id: A
   square: 
   role: "admin"
