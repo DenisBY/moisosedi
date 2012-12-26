@@ -2,7 +2,6 @@
 #encoding: utf-8
 FactoryGirl.define do
   factory :water_info do
-    number_flat 2
     mont '2012-01-16'
     water_wc 40
     user_id { |u| u.association(:user) }

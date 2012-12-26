@@ -20,7 +20,7 @@ class WaterInfo < ActiveRecord::Base
   belongs_to :user
 
   
-  validates :number_flat, :presence => true, :numericality => { :only_integer => true, :greater_than => 0 }
+  
   validates :water_kitchen, :presence => true, :numericality => { :only_integer => true, :greater_than_or_equal_to => -> water_info { water_info.get_previos.try(:water_kitchen).to_i } }
   validates :water_wc, :presence => true, :numericality => { :only_integer => true, :greater_than_or_equal_to => -> water_info { water_info.get_previos.try(:water_wc).to_i } }
 
