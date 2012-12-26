@@ -39,7 +39,7 @@
           %th.table-bordered  
             Горячая вода с/у:
           %td.table-bordered
-            = current_user.water_infos.order('created_at DESC').first.water_wc
+            = WaterInfo.where(:user_id => current_user.id).last.water_wc
           %td.table-bordered
             = f.number_field :water_wc
           %td.table-bordered
@@ -47,7 +47,7 @@
           %th.table-bordered  
             Горячая вода кухня:
           %td.table-bordered
-            = current_user.water_infos.order('created_at DESC').first.water_kitchen
+            = WaterInfo.where(:user_id => current_user.id).last.water_kitchen
           %td.table-bordered
             = f.number_field :water_kitchen
           %td.table-bordered  

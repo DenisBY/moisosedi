@@ -78,6 +78,15 @@
 
 6:
   id: 6
+  flat: 3
+  owner: "Test Test"
+  contacts: "+375098765432"
+  houses_id: 1
+  square: "60"
+  role: "user"
+
+7:
+  id: 7
   flat: 
   owner: "Аудитор Аудиторович Аудиторов"
   contacts: 
