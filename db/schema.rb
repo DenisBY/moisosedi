@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121226140400) do
+ActiveRecord::Schema.define(:version => 20121226141755) do
 
   create_table "houses", :force => true do |t|
     t.string   "address"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20121226140400) do
 
   create_table "water_infos", :force => true do |t|
     t.date     "mont"
-    t.integer  "number_flat"
     t.integer  "user_id"
     t.integer  "water_wc"
     t.integer  "water_kitchen"
