@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+label.label {
+  position: absolute;
+  margin: 2px 0px 0px 80px;
+}

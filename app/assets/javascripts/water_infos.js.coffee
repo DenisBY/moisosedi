@@ -2,7 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+
 $(document).ready ->
+
+  $("#new_water_info").validate()
+
   $(".table-change-data input[type='number']").change ->
     val = $(this).val()
     root = $(this).closest("td")

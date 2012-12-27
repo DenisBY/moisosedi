@@ -41,7 +41,7 @@
           %td.table-bordered
             = WaterInfo.where(:user_id => current_user.id).last.water_wc
           %td.table-bordered
-            = f.number_field :water_wc
+            = f.number_field :water_wc, :class => "required", :min => WaterInfo.where(:user_id => current_user.id).last.water_wc
           %td.table-bordered
         %tr
           %th.table-bordered  
@@ -49,7 +49,7 @@
           %td.table-bordered
             = WaterInfo.where(:user_id => current_user.id).last.water_kitchen
           %td.table-bordered
-            = f.number_field :water_kitchen
+            = f.number_field :water_kitchen, :class => "required", :min => WaterInfo.where(:user_id => current_user.id).last.water_kitchen
           %td.table-bordered  
     %br/
     %br/
