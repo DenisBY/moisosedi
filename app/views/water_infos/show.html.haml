@@ -1,18 +1,19 @@
-%p#notice= notice
+
+
 
 %p
-  %b Number flat:
-  = @water_info.number_flat
+  %b Номер квартиры:
+  = @water_info.user.number_flat
 %p
-  %b User:
+  %b ФИО:
   = @water_info.user.owner
-  %b Mont:
+  %b Месяц:
   = @water_info.mont
 %p
-  %b Water wc:
+  %b Текущие показания (С/У):
   = @water_info.water_wc
 %p
-  %b Water kitchen:
+  %b Текущие показания (кухня):
   = @water_info.water_kitchen
 %p
   %b Cons:
@@ -21,7 +22,7 @@
   %b Cons:
   = @water_info.kons_k
 
-= link_to 'Edit', edit_water_info_path(@water_info)
+= link_to 'Редактирование', edit_water_info_path(@water_info)
 \|
 = link_to 'Back', water_infos_path
 

@@ -1,6 +1,70 @@
-%h1 Editing water_info
+%h1 Редактирование 
 
-= render 'form'
+%div
+  = form_for @water_info do |f|
+    - if @water_info.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@water_info.errors.count, "error")} prohibited this water_info from being saved:"
+        %ul
+          - @water_info.errors.full_messages.each do |msg|
+            %li= msg
+    %dl.dl-horizontal
+      %dt ФИО:
+      %dd
+        = current_user.owner
+      %dt Адрес:
+      %dd= current_user.house.address
+      %dt Площадь квартиры:
+      %dd= current_user.square
+      %dt Месяц:
+      %dd
+        =time_tag Date.today, :format => '%B'
+      %dt Номер квартиры:
+      %dd 
+        = current_user.number_flat
+    %br/
+    %br/    
+    
+    %table.table-bordered.table-striped.table-change-data
+      %thead
+        %tr
+          %td
+          %th
+            Предыдущее значение
+          %th
+            Текущее значение
+          %th
+            Расход  
+      %tbody
+
+        %tr
+          %th.table-bordered  
+            Горячая вода с/у:
+          %td.table-bordered
+            = @last_water_wc
+          %td.table-bordered
+            = f.number_field :water_wc, :class => "required", :min => @last_water_wc
+          %td.table-bordered
+            = WaterInfo.where(:user_id => current_user.id).last.water_wc - @last_water_wc
+        %tr
+          %th.table-bordered  
+            Горячая вода кухня:
+          %td.table-bordered
+            = @last_water_kitchen 
+          %td.table-bordered
+            = f.number_field :water_kitchen, :class => "required", :min => @last_water_kitchen
+          %td.table-bordered
+            = WaterInfo.where(:user_id => current_user.id).last.water_kitchen - @last_water_kitchen
+
+    %br/
+    %br/
+
+    = f.submit 'Отправить'
+
+
+
+
+/ = render 'form'
 
 = link_to 'Show', @water_info
 \|

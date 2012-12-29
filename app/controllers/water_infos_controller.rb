@@ -56,6 +56,14 @@ class WaterInfosController < ApplicationController
   def new
     @water_info = WaterInfo.new
 
+    if WaterInfo.where(:user_id => current_user.id).last.present?
+      @last_water_wc = WaterInfo.where(:user_id => current_user.id).last.water_wc
+      @last_water_kitchen = WaterInfo.where(:user_id => current_user.id).last.water_kitchen
+    else
+      @last_water_wc = 0
+      @last_water_kitchen = 0
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @water_info }
@@ -65,25 +73,35 @@ class WaterInfosController < ApplicationController
   # GET /water_infos/1/edit
   def edit
     @water_info = WaterInfo.find(params[:id])
+
+    if WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.present?
+      @last_water_wc = WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.water_wc
+      @last_water_kitchen = WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.water_kitchen
+    else
+      @last_water_wc = 0
+      @last_water_kitchen = 0
+    end
   end
 
   # POST /water_infos
   # POST /water_infos.json
   def create
     @water_info = WaterInfo.new(params[:water_info])
-    wc = current_user.water_infos.order('created_at DESC').first.water_wc
-    k = current_user.water_infos.order('created_at DESC').first.water_kitchen
 
     @water_info.user = current_user
     @water_info.mont = Date.today
-    
-    if wc.present? and k.present? and @water_info.water_wc.present? and @water_info.water_kitchen.present?     
-      @water_info.kons_w = @water_info.water_wc - wc
-      @water_info.kons_k = @water_info.water_kitchen - k
+
+    if current_user.water_infos.last.present?
+      @water_info.kons_w = @water_info.water_wc - current_user.water_infos.last.water_wc
+      @water_info.kons_k = @water_info.water_kitchen - current_user.water_infos.last.water_kitchen
+    else
+      @water_info.kons_w = @water_info.water_wc
+      @water_info.kons_k = @water_info.water_kitchen
     end
+
     respond_to do |format|
       if @water_info.save
-        format.html { redirect_to root_url, notice: 'Ваши показания счетчиков успешно сохранены.' }
+        format.html { render action: "show", notice: 'Ваши показания счетчиков успешно сохранены.' }
         format.json { render json: @water_info, status: :created, location: @water_info }
       else
         format.html { render action: "new" }
@@ -97,9 +115,25 @@ class WaterInfosController < ApplicationController
   def update
     @water_info = WaterInfo.find(params[:id])
 
+    if WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.present?
+      @last_water_wc = WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.water_wc
+      @last_water_kitchen = WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.water_kitchen
+    else
+      @last_water_wc = 0
+      @last_water_kitchen = 0
+    end
+
+    if current_user.water_infos.last.present?
+      @water_info.kons_w = @water_info.water_wc - @last_water_wc
+      @water_info.kons_k = @water_info.water_kitchen - @last_water_kitchen
+    else
+      @water_info.kons_w = @water_info.water_wc
+      @water_info.kons_k = @water_info.water_kitchen
+    end
+      @water_info.save
     respond_to do |format|
       if @water_info.update_attributes(params[:water_info])
-        format.html { redirect_to @water_info, notice: 'Water info was successfully updated.' }
+        format.html { redirect_to @water_info, notice: 'Ваши показания счетчиков успешно изменены.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

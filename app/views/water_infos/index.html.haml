@@ -14,7 +14,7 @@
     %th
   - @water_infos.each do |water_info|
     %tr
-      %td= water_info.number_flat
+      %td= water_info.user.number_flat
       %td= water_info.user_id
       %td= water_info.mont
       %td= water_info.water_wc
