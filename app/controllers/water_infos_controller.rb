@@ -119,24 +119,7 @@ class WaterInfosController < ApplicationController
 
     respond_to do |format|
       if @water_info.update_attributes(params[:water_info])
-
-        if WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.present?
-          @last_water_wc = WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.water_wc
-          @last_water_kitchen = WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.water_kitchen
-        else
-          @last_water_wc = 0
-          @last_water_kitchen = 0
-        end
-
-        if current_user.water_infos.last.present?
-          @water_info.kons_w = @water_info.water_wc - @last_water_wc
-          @water_info.kons_k = @water_info.water_kitchen - @last_water_kitchen
-        else
-          @water_info.kons_w = @water_info.water_wc
-          @water_info.kons_k = @water_info.water_kitchen
-        end
-        @water_info.save
-
+        cons(@water_info)
         format.html { redirect_to @water_info, notice: 'Ваши показания счетчиков успешно изменены.' }
         format.json { head :no_content }
       else
@@ -156,5 +139,25 @@ class WaterInfosController < ApplicationController
       format.html { redirect_to water_infos_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def cons(water_info)
+    if WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.present?
+      @last_water_wc = WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.water_wc
+      @last_water_kitchen = WaterInfo.where(:user_id => current_user.id).order("mont desc").offset(1).limit(1).first.water_kitchen
+    else
+      @last_water_wc = 0
+      @last_water_kitchen = 0
+    end
+
+    if current_user.water_infos.last.present?
+      water_info.kons_w = water_info.water_wc - @last_water_wc
+      water_info.kons_k = water_info.water_kitchen - @last_water_kitchen
+    else
+      water_info.kons_w = water_info.water_wc
+      water_info.kons_k = water_info.water_kitchen
+    end
+      water_info.save
   end
 end
